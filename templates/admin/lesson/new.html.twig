@@ -1,0 +1,17 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New Lesson{% endblock %}
+
+{% block body %}
+    <h1>Create new Lesson</h1>
+
+    {{ include('admin/lesson/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_lesson_index') }}">back to list</a>
+{% endblock %}
+{# {% block stylesheets %}
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js">
+{% endblock %}
+{% block javascripts %}
+    <script src=""></script>
+{% endblock %} #}

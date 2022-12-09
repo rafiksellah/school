@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail student!{% endblock %}
+
+{% block body %}
+
+{# <div class="container-fluid">
+    <img class="bd-placeholder-img" width="100%"  src="{{asset('assets/images/student1.jpeg')}}" alt="">
+</div> #}
+<div class="blog-single gray-bg">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col-lg-8 m-15px-tb">
+                <article class="article">
+                    <div class="article-img">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
+                    </div>
+                    <div class="article-title">
+                        <h2>{{student.firstName}} {{student.lastName}}</h2>
+                        <div class="media">
+                            <div class="media-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <h6> {{student.email}} </h6>
+                                        <p>Né le : {{student.birthdate|date("m/d/Y")}} </p>
+                                        <p>
+                                            {{student.address.street}}, {{student.address.postalCode}}, {{student.address.city}}
+                                        </p>
+                                        <p>
+                                            Inscrit le: {{student.createdAt|date("m/d/Y")}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail lesson!{% endblock %}
+
+{% block body %}
+
+{# <div class="container-fluid">
+    <img class="bd-placeholder-img" width="100%"  src="{{asset('assets/images/lesson1.jpeg')}}" alt="">
+</div> #}
+<div class="blog-single gray-bg">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col-lg-8 m-15px-tb">
+                <article class="article">
+                    <div class="article-img">
+                        <img src="{{asset('assets/images/lesson1.jpeg')}}" title="" alt="">
+                    </div>
+                    <div class="article-title">
+                        <h4>{{lesson.name}}</h4>
+                        <h2>Ecole: {{lesson.school.name}}</h2>
+                        <div class="media">
+                            <div class="media-body">
+                                <div class="row">
+                                    {% for student in lesson.students %}
+                                    <div class="col-lg-4">
+                                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="https://bootdey.com/img/Content/avatar/avatar1.png" >
+
+                                        <h2>{{student.lastName}}</h2>
+                                        <p> {{student.firstName}} </p>
+                                        <p>
+                                            <b>Note:</b> {{student.grades[0].score}}
+                                        </p>
+                                        <p><a class="btn btn-secondary" href="{{ path('app_student_detail', {'id': student.id}) }}">View details &raquo;</a></p>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-4 m-15px-tb blog-aside">
+                <div class="widget widget-author">
+                    <div class="widget-title">
+                        <h3>Best Student </h3>
+                    </div>
+                    {% for student in students %}
+                        <div class="widget-body mt-2">
+                            <div class="media align-items-center">
+                                <div class="avatar">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h6>{{student.firstName}} {{student.lastName}}</h6>
+                                </div>
+                            </div>
+                            <p>{{student.email}}</p>
+                            <span>Note: {{student.grades[0].score}}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}School index{% endblock %}
+
+{% block body %}
+    <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Schools list</h1>
+            </div> 
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Schools list</li>
+              </ol>
+            </div> 
+          </div> 
+        </div> 
+      </div>
+    <section class="content">
+        <div class="container-fluid">
+          <a class="btn btn-success mt-2 mb-2" href="{{ path('app_admin_school_new') }}">Create new</a>
+          <table id="example1" class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for school in schools %}
+                <tr>
+                    <td>{{ school.id }}</td>
+                    <td>{{ school.name }}</td>
+                    <td>{{school.address.street}}, {{school.address.city}}, {{school.address.postalCode}}</td>
+                    <td>
+                        <a href="{{ path('app_admin_school_show', {'id': school.id}) }}">show</a>
+                        <a href="{{ path('app_admin_school_edit', {'id': school.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          
+        </div> 
+      </section>
+{% endblock %}
